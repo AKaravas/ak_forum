@@ -1,0 +1,32 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="card">
+    <div class="card-header" id="heading-{topic.uid}">
+        <span class="mb-0">
+            <f:render partial="Media/Media" arguments="{image: topic.topicImage, icon: icon.topicIcon}"/>
+             <f:if condition="{settings.forum.global.forum.protectedForum}">
+                 <f:then>
+                     <f:render partial="Protected/Topic/Title" arguments="{topic: topic, settings: settings}"/>
+                 </f:then>
+                 <f:else>
+                      <f:link.action action="show" controller="Topic" arguments="{topic : topic}" pageUid="{settings.forum.global.topic.showPid}">
+                        {topic.name}
+                    </f:link.action>
+                 </f:else>
+             </f:if>
+        </span>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse-{topic.uid}" aria-expanded="true" aria-controls="collapse-{topic.uid}">
+            &#x25BC;
+        </button>
+    </div>
+    <div id="collapse-{topic.uid}" class="collapse show" aria-labelledby="heading-{topic.uid}" data-parent="#forumCollapse">
+        <div class="card-body">
+            {topic.description}
+            <ul>
+                <f:for each="{topic.themasRel}" as="thema">
+                    <f:render partial="Thema/Item" arguments="{thema: thema, settings: settings}"/>
+                </f:for>
+            </ul>
+        </div>
+    </div>
+</div>
+</html>

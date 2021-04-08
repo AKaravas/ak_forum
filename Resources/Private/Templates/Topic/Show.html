@@ -1,0 +1,23 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	<f:section name="content">
+		<div class="topic_wrapper">
+			<div class="header">
+				<div class="image_wrapper">
+					<f:render partial="Media/Media" arguments="{image: topic.topicImage, icon: icon.topicIcon}"/>
+				</div>
+				<div class="thema_info">
+					<h2>{topic.name}</h2>
+					<p>{topic.description}</p>
+				</div>
+			</div>
+			<ul>
+				<f:for each="{topic.themasRel}" as="thema">
+					<f:render partial="Thema/Item" arguments="{thema: thema, settings: settings}"/>
+				</f:for>
+			</ul>
+		</div>
+		<f:flashMessages />
+	</f:section>
+</html>

@@ -1,0 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:for each="{post.reactionRel}" as="reaction">
+    <f:if condition="{reaction.user.uid} == {userUid}">
+        <f:variable value="You and  <f:count subject='{post.reactionRel}'/> other <f:link.action action='getReactionList' controller='Ajax' arguments='{post: post}' class='showUsers' pageType='545826353784624'>users</f:link.action> have reacted to this post" name="peopleReacted"/>
+    </f:if>
+</f:for>
+<f:if condition="{peopleReacted}">
+    <f:then>
+        <p><f:format.html>{peopleReacted}</f:format.html></p>
+    </f:then>
+    <f:else if="<f:count subject='{post.reactionRel}'/> > 0">
+        <p><f:format.html><f:count subject='{post.reactionRel}'/> <f:link.action action="getReactionList" controller="Ajax" arguments="{post: post}" pageType="545826353784624" class="showUsers">users</f:link.action> have reacted to this post</f:format.html></p>
+    </f:else>
+</f:if>
+<f:security.ifAuthenticated>
+    <f:then>
+        <div class="reactions">
+            <ul>
+                <f:for each="{reactionList}" as="reaction">
+                    <li class="reaction reaction-{reaction.uid}">
+                        <div class="wrapper">
+                            <div class="count_reactions">
+                                <f:for each="{post.countedItems}" as="number" key="name">
+                                    <f:if condition="{name} == {reaction.name}">
+                                        <f:then>
+                                            <span class="counter {f:if(condition: '{post.userReaction} == {reaction.name}', then: 'chosen', else: '')}">{number}</span>
+                                        </f:then>
+                                    </f:if>
+                                </f:for>
+                            </div>
+                            <f:if condition="{post.createdBy.uid} != {userUid}">
+                                <f:then>
+                                    <f:if condition="{reaction.reactionImage}">
+                                        <div class="img_wrapper">
+                                            <f:link.action action="reaction" controller="Ajax" pageType="545826353784624" arguments="{post:post, reaction: reaction, hmac: post.hmac}">
+                                                <f:image image="{reaction.reactionImage}" alt="{reaction.name}" class="reaction"/>
+                                            </f:link.action>
+                                        </div>
+                                    </f:if>
+                                </f:then>
+                                <f:else>
+                                    <f:if condition="{reaction.reactionImage}">
+                                        <div class="img_wrapper">
+                                            <f:image image="{reaction.reactionImage}" alt="{reaction.name}" class="reaction"/>
+                                        </div>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </div>
+                    </li>
+                </f:for>
+            </ul>
+        </div>
+    </f:then>
+    <f:else>
+
+    </f:else>
+</f:security.ifAuthenticated>
+</html>

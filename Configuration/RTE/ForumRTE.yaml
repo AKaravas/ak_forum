@@ -1,0 +1,35 @@
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+  enterMode: "CKEDITOR.ENTER_BR"
+  externalPlugins:
+    videoembed: { resource: "EXT:ak_forum/Resources/Public/JavaScript/ckeditor/plugins/videoembed/plugin.js" }
+  config:
+    allowedContent: true
+    allowTags:
+      - div
+      - iframe
+      - img
+      - blockquote
+    toolbar:
+      - { name: 'basicstyles', items: ['Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat'] }
+      - { name: 'paragraph', items: [ 'NumberedList','BulletedList','-','Outdent','Indent','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock','Image', 'VideoEmbed' ] }
+      - { name: 'links', items: [ 'Link','Unlink' ] }
+      - { name: 'insert', items: [ 'Table','HorizontalRule','Smiley','SpecialChar' ] }
+      - { name: 'styles', items: [ 'Styles','Format','Font','FontSize','my_styles' ] }
+      - { name: 'colors', items: [ 'TextColor'] }
+
+    stylesSet:
+      - { name: 'Forum blockquote', element: 'blockquote', attributes: { 'class': 'blockquote'} }
+      - { name: 'Citation', element: 'div', attributes: { 'class': 'citation'} }
+      - { name: 'citationLink', element: 'div', attributes: { 'class': 'citation_link'} }
+      - { name: 'Quote Content', element: 'div', attributes: { 'class': 'quoted_content'} }
+processing:
+  allowTags:
+    - div
+    - iframe
+    - img
+    - blockquote

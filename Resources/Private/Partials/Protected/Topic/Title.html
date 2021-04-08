@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:security.ifAuthenticated>
+        <f:then>
+            <f:link.action action="show" controller="Topic" arguments="{topic : topic}" pageUid="{settings.forum.global.topic.showPid}">
+                {topic.name}
+            </f:link.action>
+        </f:then>
+        <f:else>
+            <f:link.action action="show" controller="Topic" arguments="{topic : topic}" pageUid="{settings.forum.global.topic.showPid}">
+                {topic.name}
+            </f:link.action>
+            {f:if(condition: 'settings.forum.global.forum.protectedForum', then: '<sup><i>Protected</i></sup>')}
+        </f:else>
+    </f:security.ifAuthenticated>
+</html>

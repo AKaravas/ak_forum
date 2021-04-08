@@ -1,0 +1,65 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <div class="row no-gutters">
+        <div class="col-sm-12">
+            <h1>{post.title}</h1>
+        </div>
+    </div>
+    <div class="row with_border no-gutters" style="border:1px solid black;padding:10px;">
+        <div class="col-sm-3">
+            <div class="user_info">
+                <div class="img_wrapper">
+                    <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+                </div>
+                <div class="info">
+                    <br>
+                    <h4>{post.createdBy.username}</h4>
+                    <p>
+                        <f:for each="{post.createdBy.usergroup}" as="usergroup">
+                            <span>{usergroup.title}<br></span>
+                        </f:for>
+                    </p>
+                    <p>Reputation: {post.createdBy.reputation}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <f:format.raw>{post.body}</f:format.raw>
+        </div>
+    </div>
+    <p></p>
+    <h2>New Reply for "{post.title}"</h2>
+
+    <f:flashMessages />
+
+    <f:form action="create" id="post-form" name="newReply" object="{newReply}">
+        <f:form.hidden name="post" value="{post}" />
+        <f:form.hidden name="hmac" value="{post.hmac}" />
+        <div class="row no-gutters">
+            <div class="col-sm-12">
+                <div class="row no-gutters">
+                    <div class="col-sm-12">
+                        <label for="body">
+                            <f:translate key="tx_akforum_domain_model_post.body" /> <span class="required">(required)</span>
+                        </label>
+                    </div>
+                    <div class="col-sm-12">
+                        <f:if condition="{quoted}">
+                            <f:then>
+                                <f:form.textarea placeholder="Please enter text" class="ckeditor_textarea" id="newPost" property="body" value="{quoted}"/>
+                            </f:then>
+                            <f:else>
+                                <f:form.textarea placeholder="Please enter text" class="ckeditor_textarea" id="newPost" property="body"/>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <f:form.submit value="{f:translate(key:'create_new_reply', extensionName:'AkForum')}" class="btn btn-primary"/>
+    </f:form>
+</f:section>
+</html>

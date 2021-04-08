@@ -1,0 +1,21 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <f:for each="{breadcrumb}" as="item" key="name" iteration="iterator">
+            <f:if condition="{settings.forum.global.breadcrumb.lastItemNotALink}">
+                <f:then>
+                    <f:if condition="{iterator.isLast}">
+                        <f:then>
+                            <li class="breadcrumb-item">{name}</li>
+                        </f:then>
+                        <f:else>
+                            <li class="breadcrumb-item"><a href="{item}">{name}</a></li>
+                        </f:else>
+                    </f:if>
+                </f:then>
+                <f:else>
+                    <li class="breadcrumb-item"><a href="{item}">{name}</a></li>
+                </f:else>
+            </f:if>
+        </f:for>
+    </ol>
+</nav>

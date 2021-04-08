@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{post}">
+    <f:then>
+        <f:form action="update" id="post-form-update" name="post" object="{post}" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="title">
+                                        <f:translate key="tx_akforum_domain_model_post.title" /> <span class="required">(required)</span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <f:form.textfield property="title" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label for="body">
+                                        <f:translate key="tx_akforum_domain_model_post.body" /> <span class="required">(required)</span>
+                                    </label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <f:form.textarea placeholder="Please enter text" class="ckeditor_textarea" id="editPost" property="body"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <f:form.submit value="Save" />
+        </f:form>
+    </f:then>
+    <f:else>
+        <p>{message}</p>
+    </f:else>
+</f:if>
+
+</html>

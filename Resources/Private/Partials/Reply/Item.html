@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="row with_border no-gutters" style="border:1px solid black;padding:10px;" id="reply-{reply.uid}">
+        <div class="col-sm-3">
+            <div class="user_info">
+                <div class="img_wrapper">
+                    <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+                </div>
+                <div class="info">
+                    <br>
+                    <f:render partial="General/User/UserInfo" arguments="{object:reply, settings:settings}"/>
+                    <f:if condition="{settings.forum.global.awards.activated}">
+                        <f:render partial="General/User/Awards" arguments="{object:reply}"/>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <div class="reply_info">
+                <div class="reply_main">
+                    <div class="reply_body">
+                        <f:format.raw>{reply.body}</f:format.raw>
+                    </div>
+                    <f:if condition="{settings.forum.global.system} == 'vote' && {settings.forum.global.vote.reply.activated}">
+                        <f:render partial="Reply/Votes" arguments="{reply:reply, settings: settings, userUid: userUid}"/>
+                    </f:if>
+                </div>
+                <div class="reply_footer row">
+                    <div class="col-sm-12 col-md-6">
+                        <f:security.ifAuthenticated>
+                            <f:then>
+                                <f:render partial="Reply/Footer/FooterEditAction" arguments="{reply:reply, settings:settings, userUid:userUid, post:post}"/>
+                                <f:render partial="Reply/Footer/FooterDeleteAction" arguments="{reply:reply, settings:settings, userUid:userUid, post:post}"/>
+                                <f:link.action action="quote" controller="Ajax" pageType="545826353784624" arguments="{reply:reply, post:post, replyHmac:reply.hmac, postHmac:post.hmac}" id="reply-{reply.uid}" class="btn btn-success quote">Quote</f:link.action>
+                            </f:then>
+                        </f:security.ifAuthenticated>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <f:if condition="{settings.forum.global.system} == 'reaction' && ({settings.forum.global.reactions.reply} || {settings.forum.global.reactions.all})">
+                            <f:render partial="Reply/Reactions" arguments="{reply:reply, reactionList:reactionList, userUid:userUid }"/>
+                        </f:if>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</html>

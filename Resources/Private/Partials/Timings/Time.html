@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+    <f:variable name="created" value="{f:format.date(date: crdate, format:'U')}"/>
+    <f:variable name="now" value="{f:format.date(date:'now', format:'U')}"/>
+    <f:variable name="diff_timestamp" value="{now - created}"/>
+    <f:variable name="seconds" value="60"/>
+    <f:variable name="mins" value="3600"/>
+    <f:variable name="hours" value="86400"/>
+    <f:variable name="days" value="{86400*30}"/>
+    <f:variable name="months" value="{86400*365}"/>
+
+    <f:if condition="{diff_timestamp} < {seconds}">
+        <f:then>
+            a few seconds
+        </f:then>
+        <f:else if="{diff_timestamp} >= {seconds} && {diff_timestamp} < {mins}">
+            <f:format.number decimals="0" thousandsSeparator=".">
+                {diff_timestamp / seconds}
+            </f:format.number> mins
+        </f:else>
+        <f:else if="{diff_timestamp} >= {mins} && {diff_timestamp} < {hours}">
+            <f:format.number decimals="0" thousandsSeparator=".">
+                {diff_timestamp / mins}
+            </f:format.number> hours
+        </f:else>
+        <f:else if="{diff_timestamp} >= {hours} && {diff_timestamp} < {days}">
+            <f:format.number decimals="0" thousandsSeparator=".">
+                {diff_timestamp / hours}
+            </f:format.number> days
+        </f:else>
+        <f:else if="{diff_timestamp} >= {days} && {diff_timestamp} < {months}">
+            <f:format.number decimals="0" thousandsSeparator=".">
+                {diff_timestamp / days}
+            </f:format.number> months
+        </f:else>
+        <f:else>
+            <f:format.number decimals="0" thousandsSeparator=".">
+                {diff_timestamp / months}
+            </f:format.number> years
+        </f:else>
+    </f:if>
+
+</html>

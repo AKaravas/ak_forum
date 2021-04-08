@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:if condition="{image}">
+        <f:then>
+            <f:for each="{image}" as="singleImage">
+                <f:image image="{singleImage}"/>
+            </f:for>
+        </f:then>
+        <f:else>
+            <f:format.html>{icon}</f:format.html>
+        </f:else>
+    </f:if>
+</html>

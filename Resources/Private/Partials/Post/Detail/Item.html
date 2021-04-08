@@ -1,0 +1,99 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+{namespace ak = Karavas\AkForum\ViewHelpers}
+<f:if condition="{post}">
+    <f:then>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10">
+                    <h1>{post.title}</h1>
+                </div>
+                <div class="col-sm-2">
+                    <f:if condition="{settings.forum.global.post.follow.activated}">
+                        <f:render partial="Post/Detail/Follow" arguments="{post:post, userUid: userUid, isFollowing: isFollowing}"/>
+                    </f:if>
+                </div>
+            </div>
+        </div>
+        <div class="container" id="post-{post.uid}">
+            <div class="row with_border" style="border:1px solid black;padding:10px;">
+                <div class="col-sm-3">
+                    <div class="user_info">
+                        <div class="img_wrapper">
+                            <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+                        </div>
+                        <div class="info">
+                            <br>
+                            <f:render partial="General/User/UserInfo" arguments="{object:post, settings:settings}"/>
+                            <f:if condition="{settings.forum.global.awards.activated}">
+                                <f:render partial="General/User/Awards" arguments="{object:post}"/>
+                            </f:if>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="post_info">
+                        <div class="post_main">
+                            <div class="post_body">
+                                <f:format.raw>{post.body}</f:format.raw>
+                            </div>
+                            <f:if condition="{settings.forum.global.system} == 'vote' && {settings.forum.global.vote.post.activated}">
+                                <f:render partial="Post/Detail/Votes" arguments="{post:post, settings: settings, userUid: userUid}"/>
+                            </f:if>
+                        </div>
+                        <div class="post_footer row">
+                            <div class="col-sm-12 col-md-6">
+                                <f:security.ifAuthenticated>
+                                    <f:then>
+                                        <f:render partial="Post/Footer/FooterEditAction" arguments="{post:post, settings:settings, userUid:userUid}"/>
+                                        <f:render partial="Post/Footer/FooterDeleteAction" arguments="{post:post, settings:settings, userUid:userUid}"/>
+                                    </f:then>
+                                </f:security.ifAuthenticated>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+                                <f:if condition="{settings.forum.global.system} == 'reaction' && ({settings.forum.global.reactions.post} || {settings.forum.global.reactions.all})">
+                                    <f:render partial="Post/Detail/Reactions" arguments="{post:post, reactionList:reactionList, userUid:userUid }"/>
+                                </f:if>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <f:debug>{_all}</f:debug>
+        <div class="container-fluid px-0">
+            <f:for each="{pagination_settings.paginator.paginatedItems}" as="reply" iteration="iterator">
+                    <f:render partial="Reply/Item" arguments="{_all}"/>
+            </f:for>
+            <f:render partial="Utility/Paginator.html" arguments="{pagination: pagination_settings.pagination, pages: pagination_settings.pages, paginator: pagination_settings.paginator, removeLinks: pagination_settings.removeLinks, paginationLinksParams: pagination_settings.paginationLinksParams, separator: pagination_settings.separator, searchParameters: searchParameters, currentPage: pagination_settings.currentPage}" />
+        </div>
+        <f:render partial="Reply/Buttons/ReplyButton" arguments="{post: post, settings: settings}"/>
+        <f:render partial="Reply/Buttons/QuoteButton" arguments="{post: post, settings: settings}"/>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="showUsers" tabindex="-1" role="dialog" aria-labelledby="reactionModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-footer">
+                        <h2>See who reacted to this</h2><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                    <div class="reaction-content">
+                        <div class="sk-chase" id="sk-chase">
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                            <div class="sk-chase-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </f:then>
+    <f:else>
+        <p>{message}</p>
+    </f:else>
+</f:if>
+
+</html>

@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+        <f:variable name="columnName" value="{settings.forum.global.reply.delete.columnToCompare}"/>
+        <f:variable name="timeToDelete" value="{settings.forum.global.reply.delete.timeInSeconds}"/>
+        <f:variable name="now" value="{f:format.date(date:'now', format:'U')}"/>
+
+        <f:if condition="{columnName}">
+            <f:switch expression="{columnName}">
+                <f:case value="tstamp">
+                    <f:variable name="columnValue" value="{reply.tstamp}"/>
+                    <f:variable name="formatedDate" value="{f:format.date(date:columnValue, format:'U')}"/>
+                </f:case>
+                <f:defaultCase>
+                    <f:variable name="columnValue" value="{reply.crdate}"/>
+                    <f:variable name="formatedDate" value="{f:format.date(date:columnValue, format:'U')}"/>
+                </f:defaultCase>
+            </f:switch>
+        </f:if>
+        <f:if condition="{userUid} == {reply.createdBy.uid}">
+            <f:if condition="{settings.forum.global.reply.delete.deleteNoMatterWhat}">
+                <f:then>
+                    <f:link.action action="delete" controller="Reply" pageUid="{settings.forum.global.reply.deletePid}" arguments="{reply:reply, post:post, postHmac:post.hmac, hmac:reply.hmac}" class="btn btn-danger">Delete reply</f:link.action>
+                </f:then>
+                <f:else>
+                    <f:if condition="{timeToDelete}">
+                        <f:then>
+                            <f:if condition="{now - formatedDate} < {timeToDelete}">
+                                <f:link.action action="delete" controller="Reply" pageUid="{settings.forum.global.reply.deletePid}" arguments="{reply:reply, post:post, postHmac:post.hmac, hmac:reply.hmac}" class="btn btn-danger">Delete reply</f:link.action>
+                            </f:if>
+                        </f:then>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </f:if>
+</html>

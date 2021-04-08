@@ -1,0 +1,148 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Function</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<switchableControllerActions>
+						<TCEforms>
+							<label>Select function</label>
+							<onChange>reload</onChange>
+							<config>
+								<type>select</type>
+								<renderType>selectSingle</renderType>
+								<items>
+									<numIndex index="0">
+										<numIndex index="0">Forum</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="1">
+										<numIndex index="0">Forum list</numIndex>
+										<numIndex index="1">Forum->list;Forum->show</numIndex>
+									</numIndex>
+									<numIndex index="2">
+										<numIndex index="0">Forum show</numIndex>
+										<numIndex index="1">Forum->show;Forum->list</numIndex>
+									</numIndex>
+									<numIndex index="3">
+										<numIndex index="0">Topic</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="4">
+										<numIndex index="0">Topic list</numIndex>
+										<numIndex index="1">Topic->list</numIndex>
+									</numIndex>
+									<numIndex index="5">
+										<numIndex index="0">Topic show</numIndex>
+										<numIndex index="1">Topic->show</numIndex>
+									</numIndex>
+									<numIndex index="6">
+										<numIndex index="0">Thema</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="7">
+										<numIndex index="0">Thema show</numIndex>
+										<numIndex index="1">Thema->show</numIndex>
+									</numIndex>
+									<numIndex index="8">
+										<numIndex index="0">Post</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="9">
+										<numIndex index="0">Post show</numIndex>
+										<numIndex index="1">Post->show;Post->list</numIndex>
+									</numIndex>
+									<numIndex index="10">
+										<numIndex index="0">Post new</numIndex>
+										<numIndex index="1">Post->new;Post->create</numIndex>
+									</numIndex>
+									<numIndex index="11">
+										<numIndex index="0">Post create</numIndex>
+										<numIndex index="1">Post->create;Post->new</numIndex>
+									</numIndex>
+									<numIndex index="12">
+										<numIndex index="0">Post edit</numIndex>
+										<numIndex index="1">Post->edit;Post->update</numIndex>
+									</numIndex>
+									<numIndex index="13">
+										<numIndex index="0">Post delete</numIndex>
+										<numIndex index="1">Post->delete</numIndex>
+									</numIndex>
+									<numIndex index="14">
+										<numIndex index="0">Reply</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="15">
+										<numIndex index="0">New reply</numIndex>
+										<numIndex index="1">Reply->new;Reply->create</numIndex>
+									</numIndex>
+									<numIndex index="16">
+										<numIndex index="0">Reply create</numIndex>
+										<numIndex index="1">Reply->create;Reply->new</numIndex>
+									</numIndex>
+									<numIndex index="17">
+										<numIndex index="0">Reply edit</numIndex>
+										<numIndex index="1">Reply->edit;Reply->update</numIndex>
+									</numIndex>
+									<numIndex index="18">
+										<numIndex index="0">Reply delete</numIndex>
+										<numIndex index="1">Reply->delete</numIndex>
+									</numIndex>
+									<numIndex index="19">
+										<numIndex index="0">Feed</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="20">
+										<numIndex index="0">Posts Feed</numIndex>
+										<numIndex index="1">Forum->postFeed</numIndex>
+									</numIndex>
+									<numIndex index="21">
+										<numIndex index="0">Replies Feed</numIndex>
+										<numIndex index="1">Forum->replyFeed</numIndex>
+									</numIndex>
+									<numIndex index="22">
+										<numIndex index="0">User</numIndex>
+										<numIndex index="1">--div--</numIndex>
+									</numIndex>
+									<numIndex index="23">
+										<numIndex index="0">User profile</numIndex>
+										<numIndex index="1">User->profile</numIndex>
+									</numIndex>
+									<numIndex index="24">
+										<numIndex index="0">User settings</numIndex>
+										<numIndex index="1">User->userSettings</numIndex>
+									</numIndex>
+								</items>
+							</config>
+						</TCEforms>
+					</switchableControllerActions>
+					<persistence.storagePid>
+						<TCEforms>
+							<label>Pid Storage</label>
+							<config>
+								<type>group</type>
+								<internal_type>db</internal_type>
+								<allowed>pages</allowed>
+								<size>1</size>
+								<maxitems>1</maxitems>
+								<minitems>0</minitems>
+								<show_thumbs>0</show_thumbs>
+								<wizards>
+									<suggest>
+										<type>suggest</type>
+										<default>
+											<searchWholePhrase>1</searchWholePhrase>
+										</default>
+									</suggest>
+								</wizards>
+							</config>
+						</TCEforms>
+					</persistence.storagePid>
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

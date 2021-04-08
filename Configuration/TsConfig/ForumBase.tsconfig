@@ -1,0 +1,14 @@
+RTE {
+    config {
+        tx_akforum_domain_model_reply {
+            body {
+                preset = forum
+            }
+        }
+        tx_akforum_domain_model_post {
+            body {
+                preset = forum
+            }
+        }
+    }
+}

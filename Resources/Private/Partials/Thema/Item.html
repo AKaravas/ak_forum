@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+        <li>
+            <div class="image_wrapper">
+                <f:render partial="Media/Media" arguments="{image: thema.themaImage, icon: thema.themaIcon}"/>
+            </div>
+            <div class="thema_info">
+                <f:if condition="{settings.forum.global.forum.protectedForum}">
+                    <f:then>
+                        <f:render partial="Protected/Thema/Title" arguments="{thema: thema, settings: settings}"/>
+                    </f:then>
+                    <f:else>
+                        <f:link.action action="show" controller="Thema" arguments="{thema : thema}" pageUid="{settings.forum.global.thema.showPid}">
+                            {thema.name}
+                        </f:link.action>
+                    </f:else>
+                </f:if>
+                <p><f:format.raw>{thema.description}</f:format.raw></p>
+            </div>
+        </li>
+</html>

@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <div class="container reply">
+        <div class="row justify-content-end">
+            <div class="col-9" style="text-align: right">
+                <f:security.ifAuthenticated>
+                    <f:then>
+                        <f:link.action action="new" controller="Reply" pageUid="{settings.forum.global.reply.newPid}" arguments="{post:post, hmac: post.hmac}" class="btn btn-info">New Reply</f:link.action>
+                    </f:then>
+                    <f:else>
+                        <p>You must be logged-in in order to be able to reply to this post</p>
+                    </f:else>
+                </f:security.ifAuthenticated>
+            </div>
+        </div>
+    </div>
+</html>

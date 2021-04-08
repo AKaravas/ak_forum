@@ -1,0 +1,15 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <h4>
+        <f:link.action action="profile" controller="User" pageUid="{settings.forum.global.user.profilePid}" arguments="{userId: post.createdBy.uid}">
+            {post.createdBy.username}
+        </f:link.action>
+    </h4>
+    <p>
+        <f:for each="{post.createdBy.usergroup}" as="usergroup">
+            <span><strong>Usergroup</strong>: {usergroup.title}<br></span>
+        </f:for>
+    </p>
+    <f:if condition="{settings.forum.global.reputation.activated}">
+        <p><strong>Reputation</strong>: <span class="reputation user-{post.createdBy.uid}">{post.createdBy.reputation}</span></p>
+    </f:if>
+</html>

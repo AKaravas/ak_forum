@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-02T15:25:41Z" product-name="ak_forum">
+		<header/>
+		<body>
+			<trans-unit id="tx_akforum_domain_model_forum">
+				<source>Forum</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_forum.forum_title">
+				<source>Forum Title</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_forum.topics_rel">
+				<source>Topics Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic">
+				<source>Topic</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.themas_rel">
+				<source>Themas Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema">
+				<source>Thema</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.posts_rel">
+				<source>Posts Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.followers">
+				<source>Followers</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post">
+				<source>Post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.body">
+				<source>Body</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.views">
+				<source>Views</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.reply_rel">
+				<source>Reply Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.reported_by">
+				<source>Reported By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.liked_by">
+				<source>Liked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.disliked_by">
+				<source>Disliked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.followers">
+				<source>Followers</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.created_by">
+				<source>Created By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply">
+				<source>Reply</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.body">
+				<source>Body</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.liked_by">
+				<source>Liked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.disliked_by">
+				<source>Disliked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.reported_by">
+				<source>Reported By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser">
+				<source>Frontend User</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.reputation">
+				<source>Reputation</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.reported_by">
+				<source>Reported By</source>
+			</trans-unit>
+			<trans-unit id="blockquote_user_said">
+				<source>The user %s said:</source>
+			</trans-unit>
+			<trans-unit id="create_new_reply">
+				<source>Create new reply</source>
+			</trans-unit>
+			<trans-unit id="action_topic_list">
+                <source>Topics</source>
+            </trans-unit>
+			<trans-unit id="post_not_found">
+				<source>Post not found</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.createdPost">
+				<source>Created post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.updatedPost">
+				<source>Updated post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.createdReply">
+				<source>Created reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.updatedReply">
+				<source>Updated reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.visitedUser">
+				<source>Visited user</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.votedPost">
+				<source>Voted post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.votedReply">
+				<source>Voted reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.reactedToPost">
+				<source>Reacted to post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.reactedToReply">
+				<source>Reacted to reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.followedPost">
+				<source>Followed post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.followedThema">
+				<source>Followed thema</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.visitedPost">
+				<source>Visited post</source>
+			</trans-unit>
+
+			<!-- Mail -->
+			<trans-unit id="mail.exception">
+				<source>An exception appeared on your forum. (%1$s)</source>
+			</trans-unit>
+
+			<!-- Pagination -->
+			<trans-unit id="pagination.previous">
+				<source>Previous</source>
+			</trans-unit>
+			<trans-unit id="pagination.next">
+				<source>Next</source>
+			</trans-unit>
+			<trans-unit id="pagination.first">
+				<source>First page</source>
+			</trans-unit>
+			<trans-unit id="pagination.last">
+				<source>Last page</source>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

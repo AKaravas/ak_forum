@@ -1,0 +1,62 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<nav>
+    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">All <span>({allCounted})</span></a>
+        <f:for each="{reactions}" as="reaction">
+            <f:for each="{countedItems}" as="number" key="name">
+                <f:if condition="{name} == {reaction.name}">
+                    <f:then>
+                        <f:variable name="counted" value="{number}"/>
+                    </f:then>
+                </f:if>
+            </f:for>
+            <a class="nav-item nav-link {f:if(condition: '{counted}', then: '', else: 'disabled')}" id="nav-{reaction.name}-tab" data-toggle="tab" href="#nav-{reaction.name}" role="tab" aria-controls="nav-{reaction.name}" aria-selected="true">
+                <f:image image="{reaction.reactionImage}" alt="{reaction.name}"/>
+                {reaction.name} <span>{f:if(condition: '{counted}', then: '({counted})', else: '')}</span>
+            </a>
+        </f:for>
+    </div>
+</nav>
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-all-tab">
+        <div class="users_wrapper">
+            <f:for each="{object.reactionRel}" as="reactionList">
+                <div class="user">
+                    <div class="user_image">
+                        <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+                    </div>
+                    <div class="user_info">
+                        <h4>{reactionList.user.username}</h4>
+                        <span>
+                            <f:image image="{reactionList.reaction.reactionImage}" alt="{reactionList.reaction.name}"/>
+                            <span class="date"><f:format.date format="H:i - d.m.Y">{reactionList.creationDate}</f:format.date></span>
+                        </span>
+                    </div>
+                </div>
+            </f:for>
+        </div>
+    </div>
+    <f:for each="{reactions}" as="reaction">
+        <div class="tab-pane fade" id="nav-{reaction.name}" role="tabpanel" aria-labelledby="nav-{reaction.name}-tab">
+            <div class="users_wrapper">
+                <f:for each="{object.reactionRel}" as="reactionList">
+                    <f:if condition="{reactionList.reaction.name} == {reaction.name}">
+                        <div class="user">
+                            <div class="user_image">
+                                <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+                            </div>
+                            <div class="user_info">
+                                <h4>{reactionList.user.username}</h4>
+                                <span>
+                                    <span class="date"><f:format.date format="H:i - d.m.Y">{reactionList.creationDate}</f:format.date></span>
+                                </span>
+                            </div>
+                        </div>
+                    </f:if>
+                </f:for>
+            </div>
+        </div>
+    </f:for>
+</div>
+
+</html>

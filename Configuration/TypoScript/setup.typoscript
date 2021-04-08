@@ -1,0 +1,43 @@
+config.loginPage = 2
+plugin.tx_akforum_akforum {
+    view {
+        templateRootPaths.0 = EXT:ak_forum/Resources/Private/Templates/
+        templateRootPaths.1 = {$plugin.tx_akforum_akforum.view.templateRootPath}
+        partialRootPaths.0 = EXT:ak_forum/Resources/Private/Partials/
+        partialRootPaths.1 = {$plugin.tx_akforum_akforum.view.partialRootPath}
+        layoutRootPaths.0 = EXT:tx_akforum/Resources/Private/Layouts/
+        layoutRootPaths.1 = {$plugin.tx_akforum_akforum.view.layoutRootPath}
+    }
+    persistence {
+        storagePid = {$plugin.tx_akforum_akforum.persistence.storagePid}
+        #recursive = 1
+    }
+    features {
+        #skipDefaultArguments = 1
+        # if set to 1, the enable fields are ignored in BE context
+        ignoreAllEnableFieldsInBe = 0
+        # Should be on by default, but can be disabled if all action in the plugin are uncached
+        requireCHashArgumentForActionArguments = 1
+    }
+    mvc {
+        #callDefaultActionIfActionCantBeResolved = 1
+    }
+}
+page.includeJS {
+    ckeditor = EXT:ak_forum/Resources/Public/JavaScript/ckeditor/ckeditor.js
+    ckeditor {
+        forceOnTop                  = 0
+        external                    = 0
+        disableCompression          = 0
+        excludeFromConcatenation    = 0
+    }
+
+    forumMain = EXT:ak_forum/Resources/Public/JavaScript/main.js
+    forumMain {
+        forceOnTop                  = 0
+        external                    = 0
+        disableCompression          = 0
+        excludeFromConcatenation    = 0
+    }
+}
+

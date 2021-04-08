@@ -1,0 +1,50 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:variable name="columnName" value="{settings.forum.global.reply.edit.columnToCompare}"/>
+<f:variable name="timeInSeconds" value="{settings.forum.global.reply.edit.timeInSeconds}"/>
+<f:variable name="now" value="{f:format.date(date:'now', format:'U')}"/>
+<f:variable name="timesToEdit" value="{settings.forum.global.reply.edit.timesToEdit}"/>
+
+<f:if condition="{columnName}">
+    <f:switch expression="{columnName}">
+        <f:case value="tstamp">
+            <f:variable name="columnValue" value="{reply.tstamp}"/>
+            <f:variable name="formatedDate" value="{f:format.date(date:columnValue, format:'U')}"/>
+        </f:case>
+        <f:defaultCase>
+            <f:variable name="columnValue" value="{reply.crdate}"/>
+            <f:variable name="formatedDate" value="{f:format.date(date:columnValue, format:'U')}"/>
+        </f:defaultCase>
+    </f:switch>
+</f:if>
+<f:if condition="{userUid} == {reply.createdBy.uid}">
+    <f:if condition="{settings.forum.global.reply.edit.editNoMatterWhat}">
+        <f:then>
+            <f:link.action action="edit" controller="Reply" pageUid="{settings.forum.global.reply.editPid}" arguments="{reply:reply, post:post, postHmac:post.hmac, hmac:reply.hmac}" class="btn btn-info">Edit reply</f:link.action>
+        </f:then>
+        <f:else>
+            <f:if condition="{timeInSeconds}">
+                <f:then>
+                    <f:if condition="{now - formatedDate} < {timeInSeconds}">
+                        <f:if condition="{timesToEdit}">
+                            <f:then>
+                                <f:if condition="{reply.timesEdited} < {timesToEdit}">
+                                    <f:link.action action="edit" controller="Reply" pageUid="{settings.forum.global.reply.editPid}" arguments="{reply:reply, post:post, postHmac:post.hmac, hmac:reply.hmac}" class="btn btn-info">Edit reply</f:link.action>
+                                </f:if>
+                            </f:then>
+                            <f:else>
+                                <f:link.action action="edit" controller="Reply" pageUid="{settings.forum.global.reply.editPid}" arguments="{reply:reply, post:post, postHmac:post.hmac, hmac:reply.hmac}" class="btn btn-info">Edit reply</f:link.action>
+                            </f:else>
+                        </f:if>
+                    </f:if>
+                </f:then>
+                <f:else>
+                    <f:if condition="{reply.canEdit}">
+                        <f:link.action action="edit" controller="Reply" pageUid="{settings.forum.global.reply.editPid}" arguments="{reply:reply, post:post, postHmac:post.hmac, hmac:reply.hmac}" class="btn btn-info">Edit reply</f:link.action>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </f:else>
+    </f:if>
+</f:if>
+</html>

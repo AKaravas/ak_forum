@@ -1,0 +1,34 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:section name="content">
+    <h1>New Reply</h1>
+
+    <f:flashMessages />
+
+    <f:form action="update" id="reply-form" name="reply" object="{reply}">
+        <f:form.hidden name="reply_hmac" value="{reply.hmac}" />
+        <f:form.hidden name="post_hmac" value="{post.hmac}" />
+        <f:form.hidden name="post" value="{post}" />
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label for="body">
+                                    <f:translate key="tx_akforum_domain_model_post.body" /> <span class="required">(required)</span>
+                                </label>
+                            </div>
+                            <div class="col-sm-12">
+                                <f:form.textarea placeholder="Please enter text" class="ckeditor_textarea" id="editReply" property="body"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <f:form.submit value="update" />
+    </f:form>
+</f:section>
+</html>

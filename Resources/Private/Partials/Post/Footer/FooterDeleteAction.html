@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+
+        <f:variable name="columnName" value="{settings.forum.global.post.delete.columnToCompare}"/>
+        <f:variable name="timeToDelete" value="{settings.forum.global.post.delete.timeInSeconds}"/>
+        <f:variable name="now" value="{f:format.date(date:'now', format:'U')}"/>
+
+        <f:if condition="{columnName}">
+            <f:switch expression="{columnName}">
+                <f:case value="tstamp">
+                    <f:variable name="columnValue" value="{post.tstamp}"/>
+                    <f:variable name="formatedDate" value="{f:format.date(date:columnValue, format:'U')}"/>
+                </f:case>
+                <f:defaultCase>
+                    <f:variable name="columnValue" value="{post.crdate}"/>
+                    <f:variable name="formatedDate" value="{f:format.date(date:columnValue, format:'U')}"/>
+                </f:defaultCase>
+            </f:switch>
+        </f:if>
+        <f:if condition="{userUid} == {post.createdBy.uid}">
+            <f:if condition="{settings.forum.global.post.delete.deleteNoMatterWhat}">
+                <f:then>
+                    <f:link.action action="delete" controller="Post" pageUid="{settings.forum.global.post.deletePid}" arguments="{post:post, hmac:post.hmac}" class="btn btn-danger">Delete post</f:link.action>
+                </f:then>
+                <f:else>
+                    <f:if condition="{timeToDelete}">
+                        <f:then>
+                            <f:if condition="{now - formatedDate} < {timeToDelete}">
+                                <f:link.action action="delete" controller="Post" pageUid="{settings.forum.global.post.deletePid}" arguments="{post:post, hmac:post.hmac}" class="btn btn-danger">Delete post</f:link.action>
+                            </f:if>
+                        </f:then>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </f:if>
+</html>

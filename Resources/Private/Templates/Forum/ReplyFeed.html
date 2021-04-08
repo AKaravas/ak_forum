@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="reply_feed_wrapper">
+    <h3>Reply Feed</h3>
+    <f:if condition="{settings.forum.global.forum.protectedForum}">
+        <f:then>
+            <f:security.ifAuthenticated>
+                <f:then>
+                    <ul class="feed">
+                        <f:for each="{feedReplies}" as="feedReply">
+                            <f:render partial="Forum/Feed" arguments="{feed : feedReply, column: 'body', post: feedReply.post}"/>
+                        </f:for>
+                    </ul>
+                </f:then>
+                <f:else>
+                    <p>You do not have permission to see the post feed</p>
+                </f:else>
+            </f:security.ifAuthenticated>
+        </f:then>
+        <f:else>
+            <ul class="feed">
+                <f:for each="{feedReplies}" as="feedReply">
+                    <f:render partial="Forum/Feed.html" arguments="{feed:feedReply, column: 'body', post: feedReply.post}"/>
+                </f:for>
+            </ul>
+        </f:else>
+    </f:if>
+</div>
+</html>

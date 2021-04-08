@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="votes">
+    <f:variable name="upVoted" value="{reply.upvotedBy-> f:count()}"/>
+    <f:variable name="downVoted" value="{reply.downvotedBy-> f:count()}"/>
+    <f:for each="{reply.upvotedBy}" as="voter">
+        <f:if condition="{voter.uid} === {userUid}">
+            <f:variable name="upVotedByUser" value="voted"/>
+        </f:if>
+    </f:for>
+    <f:for each="{reply.downvotedBy}" as="voter">
+        <f:if condition="{voter.uid} === {userUid}">
+            <f:variable name="downVotedByUser" value="voted"/>
+        </f:if>
+    </f:for>
+    <f:if condition="{settings.forum.global.vote.reply.upVote} && {settings.forum.global.vote.reply.downVote}">
+        <f:then>
+            <f:render section="upVoteButton" arguments="{reply:reply, upVotedByUser: upVotedByUser}"/>
+            <p class="vote_results">{upVoted - downVoted}</p>
+            <f:render section="downVoteButton" arguments="{reply:reply, downVotedByUser:downVotedByUser}"/>
+        </f:then>
+        <f:else if="{settings.forum.global.vote.reply.upVote} && {settings.forum.global.vote.reply.downVote} == 0">
+            <f:render section="upVoteButton" arguments="{reply:reply, upVotedByUser:upVotedByUser}"/>
+            <p class="vote_results">{upVoted}</p>
+        </f:else>
+        <f:else if="{settings.forum.global.vote.reply.upVote}==0 && {settings.forum.global.vote.reply.downVote}">
+            <f:render section="downVoteButton" arguments="{reply:reply, downVotedByUser:downVotedByUser}"/>
+            <p class="vote_results">{downVoted}</p>
+        </f:else>
+        <f:else>
+            <f:render section="upVoteButton" arguments="{reply:reply, upVotedByUser:upVotedByUser}"/>
+            <p class="vote_results">{upVoted - downVoted}</p>
+            <f:render section="downVoteButton" arguments="{reply:reply, downVotedByUser:downVotedByUser}"/>
+        </f:else>
+    </f:if>
+</div>
+<f:section name="upVoteButton">
+    <f:link.action action="votes" controller="Ajax" pageType="545826353784624" arguments="{reply: reply, vote: 'upvote', hmac: reply.hmac}" class="vote upvote {upVotedByUser}">
+        <f:image src="EXT:ak_forum/Resources/Public/Icons/018-up-chevron-button.svg"/>
+    </f:link.action>
+</f:section>
+<f:section name="downVoteButton">
+    <f:link.action action="votes" controller="Ajax" pageType="545826353784624" arguments="{reply: reply, vote: 'downvote', hmac: reply.hmac}" class="vote downvote {downVotedByUser}">
+        <f:image src="EXT:ak_forum/Resources/Public/Icons/019-chevron-sign-down.svg"/>
+    </f:link.action>
+</f:section>
+</html>

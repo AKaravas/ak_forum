@@ -1,0 +1,72 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+	<f:layout name="Default" />
+
+	<f:section name="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2>{thema.name}</h2>
+					<p><f:format.raw>{thema.description}</f:format.raw></p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-10">
+					<f:security.ifAuthenticated>
+						<f:then>
+							<f:link.action action="new" controller="Post" class="btn btn-info" pageUid="{settings.forum.global.post.newPid}" arguments="{thema: thema, hmac:thema.hmac}">New Post</f:link.action>
+						</f:then>
+						<f:else>
+							<p>You must be logged-in in order to be able to create a post</p>
+						</f:else>
+					</f:security.ifAuthenticated>
+				</div>
+				<div class="col-sm-2">
+					<f:if condition="{settings.forum.global.post.follow.activated}">
+						<f:render partial="Thema/Detail/Follow" arguments="{thema:thema, userUid: userUid, isFollowing: isFollowing}"/>
+					</f:if>
+				</div>
+			</div>
+		</div>
+		<f:if condition="{settings.forum.global.forum.protectedForum}">
+			<f:then>
+				<f:render partial="Protected/Post/List/Item" arguments="{_all}"/>
+			</f:then>
+			<f:else>
+				<f:if condition="{pinned}">
+					<div class="container posts">
+						<div class="row">
+							<div class="col-sm-12">
+								<p class="container_pinned">Pinned Posts</p>
+								<f:render partial="Post/List/Item" arguments="{objects: pinned}"/>
+							</div>
+						</div>
+					</div>
+				</f:if>
+				<f:if condition="{featured}">
+					<div class="container posts">
+						<div class="row">
+							<div class="col-sm-12">
+								<p class="container_featured">Featured Posts</p>
+								<f:render partial="Post/List/Item" arguments="{objects: featured}"/>
+							</div>
+						</div>
+					</div>
+				</f:if>
+				<div class="container posts">
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="posts_wrapper">
+								<p class="container_other">Other Posts</p>
+								<f:render partial="Post/List/Item" arguments="{objects: thema.postsRel, other: 1}"/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</f:else>
+		</f:if>
+		<f:flashMessages />
+
+	</f:section>
+</html>

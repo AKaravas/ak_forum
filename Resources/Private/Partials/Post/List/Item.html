@@ -1,0 +1,59 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Replies</th>
+                <th scope="col">Last reply</th>
+                <th scope="col">Views</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <f:for each="{objects}" as="object" reverse="true">
+                <f:if condition="{other}">
+                    <f:then>
+                        <f:if condition="{object.pinned} != true && {object.featured} != true">
+                            <f:render section="Items" arguments="{object: object, settings: settings}"/>
+                        </f:if>
+                    </f:then>
+                    <f:else>
+                        <f:render section="Items" arguments="{object: object, settings: settings}"/>
+                    </f:else>
+                </f:if>
+            </f:for>
+        </tbody>
+    </table>
+</html>
+
+<f:section name="Items">
+    <tr>
+        <td class="post_title w-50">
+            <f:if condition="{object.featured}"><f:image src="EXT:ak_forum/Resources/Public/Icons/010-favourite.svg" alt="Featured" class="featured_icon"/></f:if>
+            <f:if condition="{object.pinned}"><f:image src="EXT:ak_forum/Resources/Public/Icons/009-pin.svg" alt="Pinned" class="pinned_icon"/></f:if>
+            <f:link.action action="show" controller="Post" arguments="{post:object}" pageUid="{settings.forum.global.post.showPid}">{object.title}</f:link.action> <br/>
+            <span> By {object.createdBy.username} | Posted <f:render partial="Timings/Time" arguments="{crdate: object.crdate}"/> ago</span>
+        </td>
+        <td><f:count subject="{object.replyRel}" /></td>
+        <f:if condition="{object.replyRel}">
+            <f:then>
+                <f:for each="{object.replyRel}" as="objectReply" iteration="iterator">
+                    <f:if condition="{iterator.isLast}">
+                        <td class="post_reply">
+                            <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+                            <p>
+                                {objectReply.createdBy.username}<br/>
+                                <span><f:render partial="Timings/Time" arguments="{crdate: objectReply.crdate}"/> ago</span>
+                            </p>
+                        </td>
+                    </f:if>
+                </f:for>
+            </f:then>
+            <f:else>
+                <td>No replies yet</td>
+            </f:else>
+        </f:if>
+        <td><f:count subject="{object.views}" /></td>
+        <td><f:link.action action="show" controller="Post" arguments="{post:object}" class="btn btn-primary" pageUid="{settings.forum.global.post.showPid}">More</f:link.action> </td>
+    </tr>
+</f:section>

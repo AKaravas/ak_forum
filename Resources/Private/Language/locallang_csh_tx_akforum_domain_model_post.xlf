@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-02T15:25:41Z" product-name="ak_forum">
+		<header/>
+		<body>
+			<trans-unit id="title.description">
+				<source>title</source>
+			</trans-unit>
+			<trans-unit id="slug.description">
+				<source>slug</source>
+			</trans-unit>
+			<trans-unit id="body.description">
+				<source>body</source>
+			</trans-unit>
+			<trans-unit id="views.description">
+				<source>views</source>
+			</trans-unit>
+			<trans-unit id="reply_rel.description">
+				<source>replyRel</source>
+			</trans-unit>
+			<trans-unit id="reported_by.description">
+				<source>reportedBy</source>
+			</trans-unit>
+			<trans-unit id="liked_by.description">
+				<source>likedBy</source>
+			</trans-unit>
+			<trans-unit id="disliked_by.description">
+				<source>dislikedBy</source>
+			</trans-unit>
+			<trans-unit id="followers.description">
+				<source>followers</source>
+			</trans-unit>
+			<trans-unit id="created_by.description">
+				<source>createdBy</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

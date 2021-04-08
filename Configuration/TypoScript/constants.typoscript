@@ -1,0 +1,15 @@
+
+plugin.tx_akforum_akforum {
+    view {
+        # cat=plugin.tx_akforum_akforum/file; type=string; label=Path to template root (FE)
+        templateRootPath = EXT:ak_forum/Resources/Private/Templates/
+        # cat=plugin.tx_akforum_akforum/file; type=string; label=Path to template partials (FE)
+        partialRootPath = EXT:ak_forum/Resources/Private/Partials/
+        # cat=plugin.tx_akforum_akforum/file; type=string; label=Path to template layouts (FE)
+        layoutRootPath = EXT:ak_forum/Resources/Private/Layouts/
+    }
+    persistence {
+        # cat=plugin.tx_akforum_akforum//a; type=string; label=Default storage PID
+        storagePid = 2
+    }
+}

@@ -1,0 +1,167 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<nav aria-label="Page navigation example">
+    <ul class="pagination list-unstyled">
+        <f:comment>If the numbers are not be displayed and only previous and next button exists</f:comment>
+        <f:if condition="{removeLinks}">
+            <f:then>
+                <li class="page-item">
+                    <f:link.action
+                            action="{paginationLinksParams.action}"
+                            controller="{paginationLinksParams.controller}"
+                            extensionName="{paginationLinksParams.extensionName}"
+                            class="page-link"
+                            arguments="{currentPage: pagination.previousPageNumber, search: searchParameters}"
+                            addQueryString="true"
+                    >
+                        <f:translate key="pagination.previous"/>
+                    </f:link.action>
+                </li>
+                <li class="page-item">
+                    <f:link.action
+                            action="{paginationLinksParams.actionName}"
+                            controller="{paginationLinksParams.controller}"
+                            extensionName="{paginationLinksParams.extensionName}"
+                            class="page-link"
+                            arguments="{currentPage: pagination.nextPageNumber, search: searchParameters}"
+                            addQueryString="true"
+                    >
+                        <f:translate key="pagination.next"/>
+                    </f:link.action>
+                </li>
+            </f:then>
+            <f:else>
+                <f:if condition="{pagination.previousPageNumber} && {pagination.previousPageNumber} >= {pagination.firstPageNumber}">
+                    <f:then>
+                        <li class="page-item">
+                            <f:link.action
+                                    action="{paginationLinksParams.actionName}"
+                                    controller="{paginationLinksParams.controller}"
+                                    extensionName="{paginationLinksParams.extensionName}"
+                                    class="page-link"
+                                    arguments="{currentPage: 1, search: searchParameters}"
+                                    addQueryString="true"
+                            >
+                                <f:translate key="pagination.first"/>
+                            </f:link.action>
+                        </li>
+                        <li class="page-item">
+                            <f:link.action
+                                    action="{paginationLinksParams.actionName}"
+                                    controller="{paginationLinksParams.controller}"
+                                    extensionName="{paginationLinksParams.extensionName}"
+                                    class="page-link"
+                                    arguments="{currentPage: pagination.previousPageNumber, search: searchParameters}"
+                                    addQueryString="true"
+                            >
+                                <f:translate key="pagination.previous"/>
+                            </f:link.action>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{pagination.previousPageNumber}">
+                            <li class="page-item disabled">
+                                <f:link.action
+                                        action="{paginationLinksParams.actionName}"
+                                        controller="{paginationLinksParams.controller}"
+                                        extensionName="{paginationLinksParams.extensionName}"
+                                        class="page-link"
+                                        arguments="{currentPage: pagination.firstPageNumber, search: searchParameters}"
+                                        addQueryString="true"
+                                >
+                                    <f:translate key="pagination.first"/>
+                                </f:link.action>
+                            </li>
+                            <li class="page-item disabled">
+                                <f:link.action
+                                        action="{paginationLinksParams.actionName}"
+                                        controller="{paginationLinksParams.controller}"
+                                        extensionName="{paginationLinksParams.extensionName}"
+                                        class="page-link"
+                                        arguments="{currentPage: pagination.firstPageNumber, search: searchParameters}"
+                                        addQueryString="true"
+                                >
+                                    <f:translate key="pagination.previous"/>
+                                </f:link.action>
+                            </li>
+                        </f:if>
+                    </f:else>
+                </f:if>
+                <f:for each="{pages}" as="page">
+                    <f:if condition="{page} == {currentPage}">
+                        <f:then>
+                            <li class="page-item active">
+                                {page}
+                            </li>
+                        </f:then>
+                        <f:else>
+                            <li class="page-item">
+                                <f:link.action
+                                        action="{paginationLinksParams.actionName}"
+                                        controller="{paginationLinksParams.controller}"
+                                        class="page-link"
+                                        arguments="{currentPage: page, search: searchParameters}"
+                                        addQueryString="true">
+                                    {page}
+                                </f:link.action>
+                            </li>
+                        </f:else>
+                    </f:if>
+                </f:for>
+                <f:if condition="{pagination.nextPageNumber} && {pagination.nextPageNumber} <= {pagination.lastPageNumber}">
+                    <f:then>
+                        <li class="page-item">
+                            <f:link.action
+                                    action="{paginationLinksParams.actionName}"
+                                    controller="{paginationLinksParams.controller}"
+                                    class="page-link"
+                                    arguments="{currentPage: pagination.nextPageNumber, search: searchParameters}"
+                                    addQueryString="true"
+                            >
+                                <f:translate key="pagination.next"/>
+                            </f:link.action>
+                        </li>
+                        <li class="page-item">
+                            <f:link.action
+                                    action="{paginationLinksParams.actionName}"
+                                    controller="{paginationLinksParams.controller}"
+                                    class="page-link"
+                                    arguments="{currentPage: pagination.lastPageNumber, search: searchParameters}"
+                                    addQueryString="true"
+                            >
+                                <f:translate key="pagination.last"/>
+                            </f:link.action>
+                        </li>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{pagination.nextPageNumber}">
+                            <li class="page-item disabled">
+                                <f:link.action
+                                        action="{paginationLinksParams.actionName}"
+                                        controller="{paginationLinksParams.controller}"
+                                        class="page-link"
+                                        arguments="{currentPage: pagination.lastPageNumber, search: searchParameters}"
+                                        addQueryString="true"
+                                >
+                                    <f:translate key="pagination.next"/>
+                                </f:link.action>
+                            </li>
+                            <li class="page-item disabled">
+                                <f:link.action
+                                        action="{paginationLinksParams.actionName}"
+                                        controller="{paginationLinksParams.controller}"
+                                        class="page-link"
+                                        arguments="{currentPage: pagination.lastPageNumber, search: searchParameters}"
+                                        addQueryString="true"
+                                >
+                                    <f:translate key="pagination.last"/>
+                                </f:link.action>
+                            </li>
+                        </f:if>
+                    </f:else>
+                </f:if>
+            </f:else>
+        </f:if>
+    </ul>
+</nav>
+
+</html>

@@ -1,0 +1,11 @@
+
+config.tx_extbase {
+  objects {
+      TYPO3\CMS\Extbase\Domain\Model\FrontendUser {
+        className = Karavas\AkForum\Domain\Model\FrontendUser
+      }
+      TYPO3\CMS\Extbase\Domain\Repository\FrontendUserRepository {
+          className = Karavas\AkForum\Domain\Repositor\FrontendUserRepository
+    }
+  }
+}

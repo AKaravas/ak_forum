@@ -1,0 +1,20 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:security.ifAuthenticated>
+        <f:then>
+            <f:link.action action="getCurrentCount" controller="Ajax" class="getAjaxOnLoad" style="display:none" pageType="545826353784624" arguments="{post:post, hmac: post.hmac}">fe</f:link.action>
+            <div class="quote_wrapper btn btn-dark btn-lg">
+                <div class="quote_link">
+                    <f:link.action action="new" controller="Reply" pageUid="{settings.forum.global.reply.newPid}" class="quote_results" arguments="{post:post, hmac: post.hmac}" id="quoteList">
+                        Quotes <span class="quote_number"></span>
+                    </f:link.action>
+                </div>
+                <div class="remove_quotes">
+                    <f:link.action action="removeCurrentQuotes" controller="Ajax" class="removeQuotes" pageType="545826353784624" arguments="{post:post, hmac: post.hmac}">X</f:link.action>
+                </div>
+            </div>
+        </f:then>
+        <f:else>
+            <p>You must be logged-in in order to be able to reply to this post</p>
+        </f:else>
+    </f:security.ifAuthenticated>
+</html>

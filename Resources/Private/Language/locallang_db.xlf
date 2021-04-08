@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2019-12-02T15:25:41Z" product-name="ak_forum">
+		<header/>
+		<body>
+			<trans-unit id="tx_akforum_domain_model_forum">
+				<source>Forum</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_forum.description">
+                <source>Description</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_forum.forum_title">
+				<source>Forum Title</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_forum.image">
+                <source>Forum Image</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_forum.icon">
+                <source>Forum icon</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_forum.topics_rel">
+				<source>Topics Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_awardlevel">
+                <source>Award level</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_awardlevel.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_award">
+                <source>Award</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_award.name">
+                <source>Name</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_award.reputation">
+				<source>Reputation</source>
+			</trans-unit>
+             <trans-unit id="tx_akforum_domain_model_award.amount">
+                <source>Amount</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_award.level">
+                <source>Level</source>
+            </trans-unit>
+             <trans-unit id="tx_akforum_domain_model_award.reason">
+                <source>Reason</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_award.icon">
+               <source>Icon</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_award.image">
+               <source>Image</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic">
+				<source>Topic</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.image">
+                <source>Forum Image</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_topic.icon">
+                <source>Forum icon</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_topic.themas_rel">
+				<source>Themas Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema">
+				<source>Thema</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.image">
+                <source>Forum Image</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_thema.icon">
+                <source>Forum icon</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.posts_rel">
+				<source>Posts Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_thema.followers">
+				<source>Followers</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post">
+				<source>Post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.pinned">
+                <source>Pinned</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_post.featured">
+                <source>Featured</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.body">
+				<source>Body</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.views">
+				<source>Views</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.reply_rel">
+				<source>Reply Rel</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.reported_by">
+				<source>Reported By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.liked_by">
+				<source>Liked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.disliked_by">
+				<source>Disliked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.followers">
+				<source>Followers</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_post.created_by">
+				<source>Created By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply">
+				<source>Reply</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.body">
+				<source>Body</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.liked_by">
+				<source>Liked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.disliked_by">
+				<source>Disliked By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.reported_by">
+				<source>Reported By</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reply.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser">
+				<source>Frontend User</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.reputation">
+				<source>Reputation</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.reported_by">
+				<source>Reported By</source>
+			</trans-unit>
+			<trans-unit id="fe_users.tx_extbase_type.Tx_AkForum_FrontendUser">
+				<source>Just a forum FrontendUser</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.awards">
+                <source>Awards</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.visited_by">
+				<source>Visited by</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.allowed_activity">
+				<source>Allowed activity</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.createdPost">
+				<source>Created post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.updatedPost">
+				<source>Updated post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.createdReply">
+				<source>Created reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.updatedReply">
+				<source>Updated reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.visitedUser">
+				<source>Visited user</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.votedPost">
+				<source>Voted post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.votedReply">
+				<source>Voted reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.reactedToPost">
+				<source>Reacted to post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.reactedToReply">
+				<source>Reacted to reply</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.followedPost">
+				<source>Followed post</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.followedThema">
+				<source>Followed thema</source>
+			</trans-unit>
+			<trans-unit id="allowed_activity.visitedPost">
+				<source>Visited post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_reaction">
+                <source>Create a reaction</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reaction.name">
+                <source>Name</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reaction.reaction_icon">
+                <source>Reaction icon</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reaction.reaction_image">
+                <source>Reaction image</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reaction.reputation">
+                <source>Reputation</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reactionrel">
+                <source>Reaction</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reactionrel.reaction">
+                <source>Reaction</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reply.reaction_rel">
+                <source>Reactions</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_post.reaction_rel">
+                <source>Reactions</source>
+            </trans-unit>
+            <trans-unit id="tx_akforum_domain_model_reactionrel.user">
+                <source>User</source>
+            </trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity">
+				<source>Activity</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_frontenduser.activity">
+				<source>Activity</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.subtitle">
+				<source>Subtitle</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.foreign_user">
+				<source>Foreign user</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.foreign_replied">
+				<source>Replied to</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.posted">
+				<source>Posted</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.replied">
+				<source>Replied</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.reacted_to_post">
+				<source>Reacted to post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.reacted_to_reply">
+				<source>Reacted to reply</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.voted_post">
+				<source>Voted posted</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.voted_action">
+				<source>Vote action</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.voted_reply">
+				<source>Voted reply</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.reaction">
+				<source>Reaction</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.visited_user">
+				<source>Visited user</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.visited_post">
+				<source>Visited post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.followed_user">
+				<source>Followed user</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.unfollowed_user">
+				<source>Unfollowed user</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.followed_post">
+				<source>Followed post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.unfollowed_post">
+				<source>Unfollowed post</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.followed_thema">
+				<source>Followed thema</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.unfollowed_thema">
+				<source>Unfollowed thema</source>
+			</trans-unit>
+			<trans-unit id="tx_akforum_domain_model_activity.template">
+				<source>Template</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_akforum.name">
+				<source>Just a forum</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_akforum.description">
+				<source></source>
+			</trans-unit>
+			<trans-unit id="tab_topics">
+                <source>Topics</source>
+            </trans-unit>
+            <trans-unit id="tab_themas">
+                <source>Themas</source>
+            </trans-unit>
+            <trans-unit id="tab_posts">
+                <source>Posts</source>
+            </trans-unit>
+            <trans-unit id="tab_followers">
+                <source>Followers</source>
+            </trans-unit>
+            <trans-unit id="tab_replies">
+                <source>Replies</source>
+            </trans-unit>
+            <trans-unit id="tab_actions">
+                <source>Actions</source>
+            </trans-unit>
+            <trans-unit id="tab_media">
+                <source>Media</source>
+            </trans-unit>
+            <trans-unit id="tab_actions">
+                <source>Actions</source>
+            </trans-unit>
+            <trans-unit id="tab_reactions">
+                <source>Reactions</source>
+            </trans-unit>
+            <trans-unit id="tab_votes">
+                <source>Votes</source>
+            </trans-unit>
+            <trans-unit id="tab_awards">
+                <source>Awards</source>
+            </trans-unit>
+			<trans-unit id="tab_activity">
+				<source>Activity</source>
+			</trans-unit>
+			<trans-unit id="tab_user_settings">
+				<source>User settings</source>
+			</trans-unit>
+
+			<!-- Plugin descriptions -->
+			<trans-unit id="tx_ak_forum_forum_show.name">
+				<source>Forum show</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_forum_show.description">
+				<source>This plugin shows a list of topics which belong to the forum</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_topic_list.name">
+				<source>Topic list</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_topic_list.description">
+				<source>This plugin shows a list of all the available topics</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_topic_show.name">
+				<source>Topic show</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_topic_show.description">
+				<source>This plugin shows a list of all the available themas that belong to a specific topic</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_forum_postFeed.name">
+				<source>Post Feed</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_forum_postFeed.description">
+				<source>This plugin shows a list with the latest posts</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_forum_replyFeed.name">
+				<source>Reply Feed</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_forum_replyFeed.description">
+				<source>This plugin shows a list with the latest replies</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_thema_show.name">
+				<source>Thema Show</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_thema_show.description">
+				<source>This plugin shows a list with posts that belong to a specific thema</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_new.name">
+				<source>New reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_new.description">
+				<source>This plugin allows the user to see a new reply field for a post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_create.name">
+				<source>Create reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_create.description">
+				<source>This plugin allows the user to create a reply on a post. (Most of the times used as thank you page)</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_edit.name">
+				<source>Edit reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_edit.description">
+				<source>This plugin allows the user to edit a reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_update.name">
+				<source>Update reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_update.description">
+				<source>This plugin allows the user to update a reply (most of the times not needed since the extension redirects to the post)</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_delete.name">
+				<source>Delete reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_reply_delete.description">
+				<source>This plugin allows the user to delete a reply</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_new.name">
+				<source>New post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_new.description">
+				<source>This plugin allows the user to see a new post form</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_create.name">
+				<source>Create post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_create.description">
+				<source>This plugin allows the user to create a post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_edit.name">
+				<source>Edit post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_edit.description">
+				<source>This plugin allows the user to edit a post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_update.name">
+				<source>Update post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_update.description">
+				<source>This plugin allows the user to update a post (most of the times not needed since the extension redirects to the post)</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_delete.name">
+				<source>Delete post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_delete.description">
+				<source>This plugin allows the user to delete a post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_show.name">
+				<source>Show post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_post_show.description">
+				<source>This plugin shows the details of a post</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_user_profile.name">
+				<source>User profile</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_user_profile.description">
+				<source>This plugin displays the relevant user data</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_user_userSettings.name">
+				<source>User settings</source>
+			</trans-unit>
+			<trans-unit id="tx_ak_forum_user_userSettings.description">
+				<source>This plugin displays the individual user settings</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

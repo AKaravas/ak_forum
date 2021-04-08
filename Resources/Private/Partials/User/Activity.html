@@ -1,0 +1,127 @@
+<f:for each="{activity}" as="singleActivity">
+    <f:switch expression="{singleActivity.template}">
+        <f:case value="VisitedPost">
+            <f:render section="visitedPost" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="VisitedUser">
+            <f:render section="visitedUser" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="Replied">
+            <f:render section="replied" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="Posted">
+            <f:render section="posted" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="VotedPost">
+            <f:render section="votedPost" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="VotedReply">
+            <f:render section="votedReply" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="ReactedToPost">
+            <f:render section="reactedToPost" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="ReactedToReply">
+            <f:render section="reactedToReply" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="FollowedPost">
+            <f:render section="followedPost" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="FollowedThema">
+            <f:render section="followedThema" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="UpdatedPost">
+            <f:render section="updatedPost" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+        <f:case value="UpdatedReply">
+            <f:render section="updatedReply" arguments="{activityPassed: singleActivity}" />
+        </f:case>
+    </f:switch>
+</f:for>
+
+<f:section name="visitedPost">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action> visited the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="visitedUser">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action> visited the user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}" arguments="{userId: activityPassed.foreignUser.uid}">{activityPassed.foreignUser.username}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="replied">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action> replied to the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+        <p><f:format.html>{activityPassed.reply.body->f:format.html()}</f:format.html></p>
+    </h6>
+</f:section>
+<f:section name="posted">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action> created the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+        <p><f:format.html>{activityPassed.post.body->f:format.html()}</f:format.html></p>
+    </h6>
+</f:section>
+<f:section name="votedPost">
+    <f:if condition="{activityPassed.voteAction} == 'upVoted'">
+        <f:then>
+            <f:variable name="vote" value="up voted"/>
+        </f:then>
+        <f:else>
+            <f:variable name="vote" value="down voted"/>
+        </f:else>
+    </f:if>
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action>
+        {vote} the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="votedReply">
+    <f:if condition="{activityPassed.voteAction} == 'upVoted'">
+        <f:then>
+            <f:variable name="vote" value="up voted"/>
+        </f:then>
+        <f:else>
+            <f:variable name="vote" value="down voted"/>
+        </f:else>
+    </f:if>
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action>
+        {vote} the reply {activityPassed.reply.body->f:format.html()} -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="reactedToPost">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action>
+        reacted <f:image image="{activityPassed.reaction.reaction.reactionImage}"/> to the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="reactedToReply">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action>
+        reacted <f:image image="{activityPassed.reaction.reaction.reactionImage}"/> to the reply {activityPassed.reply.body->f:format.html()} -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="followedPost">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action>
+        followed the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="followedThema">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action>
+        followed the thema <f:link.action action="show" controller="Thema" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.thema.showPid}" arguments="{thema: activityPassed.thema}">{activityPassed.thema.name}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+    </h6>
+</f:section>
+<f:section name="updatedPost">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action> updated the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+        <p><f:format.html>{activityPassed.post.body->f:format.html()}</f:format.html></p>
+    </h6>
+</f:section>
+<f:section name="updatedReply">
+    <h6>The user <f:link.action action="profile" controller="User" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.user.profilePid}">{activityPassed.user.username}</f:link.action> updated the reply on the post <f:link.action action="show" controller="Post" extensionName="AkForum" pluginName="Akforum" pageUid="{settings.forumGlobal.post.showPid}" arguments="{post: activityPassed.post}">{activityPassed.post.title}</f:link.action> -
+        <f:render partial="Timings/Time" arguments="{crdate:  activityPassed.tstamp}"/> ago
+        <p><f:format.html>{activityPassed.reply.body->f:format.html()}</f:format.html></p>
+    </h6>
+</f:section>

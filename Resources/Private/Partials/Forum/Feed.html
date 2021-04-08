@@ -1,0 +1,18 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <li>
+        <div class="image_wrapper">
+            <f:image src="EXT:ak_forum/Resources/Public/Images/user_dummy.png"/>
+        </div>
+        <div class="info_wrapper">
+            <f:if condition="{column} === 'title'">
+                <f:then>
+                    <f:link.action action="show" controller="Post" pageUid="{settings.forum.global.post.showPid}" arguments="{post: post}">{feed.title-> f:format.crop(maxCharacters: 25)}</f:link.action>
+                </f:then>
+                <f:else>
+                    <f:link.action action="show" controller="Post" pageUid="{settings.forum.global.post.showPid}" arguments="{post: post}">{feed.body-> f:format.stripTags()-> f:format.crop(maxCharacters: 25)}</f:link.action>
+                </f:else>
+            </f:if>
+            <p>By {feed.createdBy.username} | <span>Posted <f:render partial="Timings/Time" arguments="{crdate: feed.crdate}"/> ago</span></p>
+        </div>
+    </li>
+</html>
